@@ -1,8 +1,11 @@
 import 'dart:io';
-
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:badges/badges.dart' as badges;
+import 'package:project1/model/category_model.dart';
 import 'package:whatsapp_camera/whatsapp_camera.dart';
+
+import '../widget/category_widget.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({super.key});
@@ -57,7 +60,42 @@ class HomePage extends StatelessWidget {
                   child: Icon(Icons.shopping_cart, size: 28),
                 )
               ],
-            )
+            ),
+            const SizedBox(height: 20),
+            CarouselSlider(
+              options: CarouselOptions(
+                height: 200,
+                viewportFraction: 1,
+                enableInfiniteScroll: true,
+                autoPlay: false,
+                autoPlayInterval: const Duration(seconds: 5),
+                autoPlayAnimationDuration: const Duration(seconds: 5),
+                autoPlayCurve: Curves.fastOutSlowIn,
+                enlargeCenterPage: true,
+                enlargeFactor: 0.3,
+                scrollDirection: Axis.horizontal,
+              ),
+              items: [
+                Container(
+                  decoration: BoxDecoration(
+                    color: Colors.amber,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                )
+              ],
+            ),
+            const SizedBox(height: 20),
+            const Row(
+              children: [
+                Icon(Icons.category_outlined, size: 28),
+                Text(
+                  'Category',
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+                )
+              ],
+            ),
+            const SizedBox(height: 10),
+            CategoryWidget()
           ],
         ),
       ),
