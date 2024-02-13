@@ -22,46 +22,49 @@ class _DetailScreenState extends State<DetailScreen> {
             Stack(
               clipBehavior: Clip.none,
               children: [
-                Container(
-                  width: double.infinity,
-                  height: 350,
-                  decoration: BoxDecoration(
-                    color: Colors.grey[300],
-                    image: DecorationImage(
-                      image: AssetImage(widget.productModel.image),
+                Hero(
+                  tag: widget.productModel.id,
+                  child: Container(
+                    width: double.infinity,
+                    height: 350,
+                    decoration: BoxDecoration(
+                      color: Colors.grey[300],
+                      image: DecorationImage(
+                        image: AssetImage(widget.productModel.image),
+                      ),
                     ),
-                  ),
-                  child: Padding(
-                    padding:
-                        const EdgeInsets.only(top: 250, left: 50, right: 50),
-                    child: Column(
-                      children: [
-                        Row(
-                          children: [
-                            for (int i = 0;
-                                i < widget.productModel.morePreview.length;
-                                i++)
-                              Expanded(
-                                child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Container(
-                                    height: 80,
-                                    decoration: BoxDecoration(
-                                      color: Colors.white,
-                                      borderRadius: BorderRadius.circular(10),
-                                      image: DecorationImage(
-                                        fit: BoxFit.cover,
-                                        image: NetworkImage(
-                                          widget.productModel.morePreview[i],
+                    child: Padding(
+                      padding:
+                          const EdgeInsets.only(top: 250, left: 50, right: 50),
+                      child: Column(
+                        children: [
+                          Row(
+                            children: [
+                              for (int i = 0;
+                                  i < widget.productModel.morePreview.length;
+                                  i++)
+                                Expanded(
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Container(
+                                      height: 80,
+                                      decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius: BorderRadius.circular(10),
+                                        image: DecorationImage(
+                                          fit: BoxFit.cover,
+                                          image: NetworkImage(
+                                            widget.productModel.morePreview[i],
+                                          ),
                                         ),
                                       ),
                                     ),
                                   ),
-                                ),
-                              )
-                          ],
-                        ),
-                      ],
+                                )
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),

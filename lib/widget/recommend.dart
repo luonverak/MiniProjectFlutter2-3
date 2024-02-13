@@ -47,13 +47,16 @@ class RecommendedWidget extends StatelessWidget {
           children: [
             Stack(
               children: [
-                Container(
-                  height: 180,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.grey[200],
-                    image: DecorationImage(
-                      image: AssetImage(productModel.image),
+                Hero(
+                  tag: productModel.id,
+                  child: Container(
+                    height: 180,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.grey[200],
+                      image: DecorationImage(
+                        image: AssetImage(productModel.image),
+                      ),
                     ),
                   ),
                 ),

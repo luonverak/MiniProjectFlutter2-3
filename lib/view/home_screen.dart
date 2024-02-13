@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:project1/view/cart_screen.dart';
 import 'package:project1/view/home_page.dart';
 import 'package:project1/view/profile_screen.dart';
-import 'package:project1/view/search_screen.dart';
 import 'package:project1/view/wishlist_screen.dart';
+
+import 'notification_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -38,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   final List listScreen = [
     HomePage(),
-    SearchScreen(),
+    NotificationScreen(),
     WishListScreen(),
     CartScreen(),
     ProfileScreen()

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project1/model/category_model.dart';
+import 'package:project1/view/category_screen.dart';
 
 class CategoryWidget extends StatelessWidget {
   const CategoryWidget({super.key});
@@ -22,13 +23,24 @@ class CategoryWidget extends StatelessWidget {
             i < 7
                 ? Padding(
                     padding: const EdgeInsets.all(20.0),
-                    child: Column(
-                      children: [
-                        listCategory[i].icon,
-                        Text(
-                          listCategory[i].name,
-                        ),
-                      ],
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => CategoryScreen(
+                                categoryModel: listCategory[i],
+                              ),
+                            ));
+                      },
+                      child: Column(
+                        children: [
+                          listCategory[i].icon,
+                          Text(
+                            listCategory[i].name,
+                          ),
+                        ],
+                      ),
                     ),
                   )
                 : const Padding(
